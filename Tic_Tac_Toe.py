@@ -86,38 +86,31 @@ while flag!=2:
         return space
 
 
-    def player1():
+    def user_input(mark):
         global index
-        l= int(input("""\nEnter the location number to mark 'O'
-        1 2 3
-        4 5 6
-        7 8 9"""))
+        str = """\nEnter the location number to mark {0}
+                1 2 3
+                4 5 6
+                7 8 9"""
+        l = int(input(str.format(mark)))
         if l in index:
             l = int(input("\n location is used. Enter another location."))
         else:
             index.append(l)
 
-        i,j=location(l)
+        i, j = location(l)
 
-        print_board(i, j, k='O')
+        print_board(i, j, k=mark)
         check_Winner()
+
+
+    def player1():
+        user_input('O')
         global flag
         flag =1
 
     def player2():
-        global index
-        l= int(input("""\nEnter the location number to mark 'X
-        1 2 3
-        4 5 6
-        7 8 9"""))
-        if l in index:
-            l = int(input("\n location is used. Enter another location."))
-        else:
-            index.append(l)
-        i, j = location(l)
-
-        print_board(i, j, k='X')
-        check_Winner()
+        user_input('X')
         global flag
         flag = 0
 
