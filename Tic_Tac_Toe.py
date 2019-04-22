@@ -88,11 +88,10 @@ while flag!=2:
 
     def user_input(mark):
         global index
-        str = """\nEnter the location number to mark {0}
+        l = int(input("""\nEnter the location number to mark {0}
                 1 2 3
                 4 5 6
-                7 8 9"""
-        l = int(input(str.format(mark)))
+                7 8 9""".format(mark)))
         if l in index:
             l = int(input("\n location is used. Enter another location."))
         else:
